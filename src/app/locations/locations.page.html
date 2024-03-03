@@ -1,0 +1,34 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="welcome">
+        <img class="logo-img" src="../../assets/img/Logo.png" />
+        <h2>Willkommen bei EventHour!</h2>
+        <p>Deine App zum Planen von Events!</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="search">
+      <ion-icon name="navigate-outline"></ion-icon>
+      <ion-label>Suchen</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="attend">
+      <ion-icon name="checkbox-outline"></ion-icon>
+      <ion-label>Teilnahme</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="event-offers">
+      <ion-icon name="balloon-outline"></ion-icon>
+      <ion-label>Events</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="authentication" (click)="onLogOut()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

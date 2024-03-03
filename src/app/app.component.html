@@ -1,0 +1,17 @@
+<ion-app>
+  <ion-menu side="start" contentId="menuContend">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title> EventHour </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-label>Dark-Theme</ion-label>
+        <ion-toggle slot="end" (ionChange)="toggleTheme($event)"></ion-toggle>
+      </ion-item>
+      <p></p>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="menuContend"></ion-router-outlet>
+</ion-app>

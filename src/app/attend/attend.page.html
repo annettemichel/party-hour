@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Deine Events</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngIf="!isLoading && (!embeddedAttends || embeddedAttends.length <= 0)">
+        <p class="ion-text-center">Momentan ist kein Eventbesuch geplant.</p>
+      </ion-col>
+      <ion-col *ngIf="!isLoading && embeddedAttends && embeddedAttends.length > 0">
+        <ion-list>
+          <ion-item-sliding *ngFor="let embeddedAttend of embeddedAttends" #itemSliding>
+
+
+
+            <ion-item>
+              <ion-col size="3"><ion-img [src]="embeddedAttend.locationImage"></ion-img></ion-col>
+              <ion-col size="9">
+                <ion-label class="spacing">
+                  <h5>{{embeddedAttend.locationTitle}}</h5>
+                  <p>{{embeddedAttend.locationDate}}</p>
+                  <p>{{embeddedAttend.locationPrice}} €</p>
+                  <ion-button class="listing-btn" [routerLink]="['/search/' + embeddedAttend.locationId]"> Mehr Infos</ion-button>
+                </ion-label>
+              </ion-col>
+            </ion-item>
+            <ion-item-options>
+              <ion-item-option color="danger" (click)="onCancelAttend(embeddedAttend.id, itemSliding)">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

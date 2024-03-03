@@ -1,0 +1,166 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Event erstellen</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/event-offers"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCreateEvent()">
+        Hinzufügen
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Veranstaltungsort</ion-label
+            ><ion-input
+              type="text"
+              autocomplete
+              autocorrect
+              formControlName="title"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Genre</ion-label>
+            <ion-select
+              value="Pop"
+              name="genre-selector"
+              formControlName="genre"
+            >
+              <ion-select-option value="Dark Wave/Gothic"
+                >Dark Wave/Gothic</ion-select-option
+              >
+              <ion-select-option value="Techno/Elektronic"
+                >Techno/Elektronic</ion-select-option
+              >
+              <ion-select-option value="Hardcore">Hardcore</ion-select-option>
+              <ion-select-option value="House">House</ion-select-option>
+              <ion-select-option value="Metal">Metal</ion-select-option>
+              <ion-select-option value="Pop">Pop</ion-select-option>
+              <ion-select-option value="Punk">Punk</ion-select-option>
+              <ion-select-option value="Rap/Hip Hop"
+                >Rap/Hip Hop</ion-select-option
+              >
+              <ion-select-option value="Schlager">Schlager</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Preis</ion-label
+            ><ion-input
+              type="Number"
+              autocomplete
+              autocorrect
+              formControlName="price"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-col size="9">
+        <ion-item id="open-modal">
+          <ion-label>Datum</ion-label>
+          <ion-text slot="end">{{ formattedDateString }}</ion-text>
+        </ion-item>
+        <ion-modal trigger="open-modal">
+          <ng-template>
+            <ion-content>
+              <ion-datetime
+                [min]="today"
+                #dateCalendar
+                presentation="date"
+                [value]="dateValue"
+                (ionChange)="dateChanged(dateCalendar.value)"
+                (ionCancel)="showPicker = false"
+                formControlName="date"
+              >
+                <ion-buttons slot="buttons">
+                  <ion-button (click)="onClose()">Schließen</ion-button>
+                  <ion-button (click)="onSelect()" color="primary"
+                    >Bestätigen</ion-button
+                  >
+                </ion-buttons>
+              </ion-datetime>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+      </ion-col>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item id="open-time">
+            <ion-label>Uhrzeit</ion-label>
+            <ion-text slot="end">{{ formattedTimeString }}</ion-text>
+          </ion-item>
+          <ion-modal trigger="open-time">
+            <ng-template>
+              <ion-content>
+                <ion-datetime
+                  #dateTime
+                  presentation="time"
+                  [value]="timeValue"
+                  (ionChange)="timeChanged(dateTime.value)"
+                  (ionCancel)="showPicker = false"
+                  formControlName="entrytime"
+                >
+                  <ion-buttons slot="buttons">
+                    <ion-button (click)="onClose()">Schließen</ion-button>
+                    <ion-button (click)="onSelect()" color="primary"
+                      >Bestätigen</ion-button
+                    >
+                  </ion-buttons>
+                </ion-datetime>
+              </ion-content>
+            </ng-template>
+          </ion-modal>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Beschreibung</ion-label>
+            <ion-textarea
+              rows="3"
+              autocomplete
+              autocorrect
+              formControlName="description"
+            ></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-col size="12">
+      <ion-item>
+        <app-location-picker
+          (positionPick)="onPositionPicked($event)"
+        ></app-location-picker>
+        <p>{{pickedLocationString}}</p>
+      </ion-item>
+    </ion-col>
+
+    <ion-col size="12">
+      <ion-item>
+        <app-image-picker
+          (imagePick)="onImagePicked($event)"
+        ></app-image-picker>
+      </ion-item>
+    </ion-col>
+  </form>
+</ion-content>

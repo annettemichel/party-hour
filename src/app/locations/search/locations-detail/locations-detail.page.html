@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/search"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{location?.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner *ngIf="isLoading"></ion-spinner>
+  <ion-img [src]="location.imageUrl"></ion-img>
+  <ion-grid class="ion-padding" *ngIf ="!isLoading">
+    <ion-row>
+      <ion-col size="12" class="detail-space">
+        <p class="date">{{location.date}}</p>
+        <h4>{{location.title}}</h4>
+        <p>{{location.description}}</p>
+        <p>Einlass: {{location.entrytime}} Uhr <br>
+           Eintritt: {{location.price}} Euro <br>
+           Genre: {{location.genre}}</p>
+        <a href="https://www.google.com/maps/place/{{location.position.address}}">{{location.position.address}}</a>
+          <p></p><br>
+        <ion-button color="primary" (click)="onVisitEvent()">Teilnehmen</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Events finden</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item *ngFor="let location of embedLocations.slice(0)">
+            <ion-col size="4">
+              <ion-img [src]="location.imageUrl"></ion-img>
+            </ion-col>
+            <ion-col size="8">
+              <ion-label class="spacing">
+                <p class="listing-date">{{location.date}}</p>
+                <h2>{{location.title}}</h2>
+                <p>{{location.genre}} &nbsp;|&nbsp; {{location.price}} €</p>
+                <ion-button class="listing-btn" [routerLink]="['/search/' + location.id]"> Mehr Infos</ion-button>
+              </ion-label>
+            </ion-col>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>

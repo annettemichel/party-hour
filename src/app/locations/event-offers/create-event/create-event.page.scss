@@ -1,0 +1,17 @@
+ion-modal {
+  --background: rgba(44, 39, 45, 02);
+
+  &::part(content) {
+    backdrop-filter: blur(6px);
+  }
+
+  ion-content {
+    --pading-top: 25vh;
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
+
+  ion-datetime {
+    margin-top: 80px;
+  }
+}

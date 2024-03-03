@@ -1,0 +1,7 @@
+{
+  "name": "EventHour",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

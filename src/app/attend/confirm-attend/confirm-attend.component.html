@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{selectedLocation.title}}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onClose()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="welcome" class="ion-padding" class="ion-text-center">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col class="ion-padding" size="12">
+        <h1>{{selectedLocation.title}} besuchen!</h1>
+        <p>{{selectedLocation.description}}</p>
+        <p>{{selectedLocation.date}}</p>
+        <ion-button color="primary" (click)="onVisitEvent()" type="submit">Jetzt Teilnehmen</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

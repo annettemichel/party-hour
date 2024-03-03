@@ -1,0 +1,30 @@
+img.logo-img {
+  height: auto;
+  width: 150px;
+}
+ion-grid{
+  height: 100%;
+}
+ion-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+ion-list.auth-check {
+  margin-bottom: 35px;
+}
+
+.ion-invalid.ion-touched ion-label {
+  color: var(--ion-color-danger);
+}
+
+ion-label.hint {
+  font-size: 12px !important;
+  margin: 0 !important;
+  color: var(--ion-color-danger);
+}
+
+
+
